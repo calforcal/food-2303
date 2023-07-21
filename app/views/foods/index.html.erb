@@ -1,0 +1,16 @@
+<h1><%= @search %> Search Results</h1>
+<h4>Total Results: <%= @total_results %></h4>
+
+<div class="search-results">
+  <h2>Top Ten Results</h2>
+    <ul>
+      <% @display_results.each do |result| %>
+        <li class="result">
+          <p class="gtin-upc">GTIN/UPC Code: <%= result.code %></p>
+          <p class="description">Description: <%= result.description %></p>
+          <p class="brand-owner">Brand Owner: <%= result.brand %></p>
+          <p class="ingredients">Ingredients: <%= result.ingredients %></p>
+        </li>
+      <% end %>
+    </ul>
+</div>
