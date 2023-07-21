@@ -5,7 +5,7 @@ class FoodFacade
 
   def food_finder
     service = FoodService.new
-    json = service.food_finder(@search)
+    json = service.get_foods_by_search(@search)
 
     top_10 = json[:foods].slice(0,10)
 
@@ -14,7 +14,7 @@ class FoodFacade
 
   def total_results
     service = FoodService.new
-    json = service.food_finder(@search)
+    json = service.get_foods_by_search(@search)
 
     json[:totalHits]
   end

@@ -3,11 +3,11 @@ require "rails_helper"
 RSpec.describe FoodService do
   describe "instance methods" do
     describe "#get_foods_by_search" do
-      it "gets all food results based on a search" do
+      it "gets all food results based on a search", :vcr do
         query = "sweet potatoes"
         search = FoodService.new.get_foods_by_search(query)
         expect(search).to be_a Hash
-        food_data = search[:foods]
+        food_data = search[:foods].first
 
         expect(food_data).to have_key(:gtinUpc)
         expect(food_data[:gtinUpc]).to be_a String
